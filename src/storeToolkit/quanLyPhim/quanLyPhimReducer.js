@@ -4,6 +4,7 @@ import { quanLyPhimServices } from '../../services/quanLyPhimService'
 
 const initialState = {
     movieList: [],
+    bannerList: [],
     movieDetail: undefined,
     isFetching: false,
     isFetchingDetail: false,
@@ -42,6 +43,7 @@ export const { reducer: quanLyPhimReducer, actions: quanLyPhimActions } = create
                 state.error = action.payload
                 state.isFetching = false
             })
+            
 
             // get movieById
             .addCase(getMovieById.pending, (state, action)=>{
@@ -65,6 +67,20 @@ export const getMovieList = createAsyncThunk(
             const value = getState().quanLyPhimReducer
             console.log('value: ', value);
             const result = await quanLyPhimServices.getMovieList()
+            return result.data.content
+        } catch (error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
+export const getBannerList = createAsyncThunk(
+    'quanLyPhim/getBannerList', //action type
+    async (data, { dispatch, getState, rejectWithValue }) => {
+        try {
+            const value = getState().quanLyPhimReducer
+            console.log('value: ', value);
+            const result = await quanLyPhimServices.getBannerList()
             return result.data.content
         } catch (error) {
             return rejectWithValue(error.response.data)
