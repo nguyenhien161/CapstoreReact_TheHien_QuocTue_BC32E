@@ -3,18 +3,18 @@ import { NavLink } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className="bg-gray-400 h-100">
+    <header className=" h-100 bg-opacity-40 fixed w-full z-10">
       <div className="container-xl flex justify-between">
         <div className="nav">
           <h2 href="" className="text-black text-30">
             <img className="w-[100px]" src="./img/logo.png" alt="" />
           </h2>
         </div>
-        <ul className="items-stretch hidden space-x-3 lg:flex">
+        <ul className="items-stretch hidden space-x-3 lg:flex ">
           <li className="flex">
             <NavLink
               to="/home"
-              className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-black hover:border-red-600"
+              className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-white hover:border-red-600"
             >
               Home
             </NavLink>
@@ -22,7 +22,7 @@ export const Header = () => {
           <li className="flex">
             <NavLink
               to="/about"
-              className="flex items-center px-4 -mb-1 border-b-2 border-transparent  text-black hover:border-red-600"
+              className="flex items-center px-4 -mb-1 border-b-2 border-transparent  text-white hover:border-red-600"
             >
               Contacts
             </NavLink>
@@ -30,14 +30,15 @@ export const Header = () => {
           <li className="flex">
             <NavLink
               to="/contax"
-              className="flex items-center px-4 -mb-1 border-b-2 border-transparent  text-black hover:border-red-600"
+              className="flex items-center px-4 -mb-1 border-b-2 border-transparent  text-white hover:border-red-600"
             >
               News
             </NavLink>
           </li>
         </ul>
+
         <div className="items-center flex-shrink-0 hidden lg:flex">
-          <button className="self-center px-5 py-2 rounded hover:text-green-400">
+          <button className="self-center px-5 py-2 rounded text-white hover:text-green-400 bg-black">
             Sign in
           </button>
           <button className="self-center px-5 py-2 font-semibold rounded bg-gray-500 text-white hover:bg-red-400 hover:text-black">

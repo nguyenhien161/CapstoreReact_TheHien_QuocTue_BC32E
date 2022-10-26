@@ -13,8 +13,8 @@ import {
 import { useQuanLyPhim } from "../../storeToolkit/quanLyPhim/quanLyPhimSelector";
 import { useQueryUrl } from "../../hooks/useQueryUrl";
 import { Skeleton } from "antd";
-import { Footer, Header } from "../../components/Molecules";
-import Carousel from "../../components/Molecules/Carousel";
+import { Carousel, Footer, Header } from "../../components/Molecules";
+import Service from "../service/Service";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -31,12 +31,8 @@ const Home = () => {
   const { movieRap, movieCinema } = useQuanLyRap();
 
   const navigate = useNavigate();
-  console.log("RAP", movieRap);
-  console.log("thongtin", movieCinema);
   useEffect(() => {
     dispatch(getMovieList());
-    dispatch(getMovieRap());
-    dispatch(getThongTinRap());
   }, []);
   if (isFetching) {
     return (
@@ -87,6 +83,7 @@ const Home = () => {
             Coming Movie
           </Button>
         </div>
+
         <div className="grid grid-cols-3 gap-3 ">
           {movieList
             .filter((item) =>
@@ -109,36 +106,71 @@ const Home = () => {
               </div>
             ))}
         </div>
-        <div className="Service">
-          <div className="gird gird-rows-5 ">
-            {movieRap &&
-              movieRap.map((films) => (
-                <div
-                  className="card w-[150px] mt-3 flex"
-                  key={films.maHeThongRap}
+        <div className="mt-4 text-center">
+          <nav aria-label="Page navigation example ">
+            <ul class="inline-flex -space-x-px">
+              <li>
+                <a
+                  href="#"
+                  class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
-                  <img className="h-25" src={films.logo} alt={films.biDanh} />
-                  <div className="card-body">
-                    <p className="text-18 text-center">{films.tenHeThongRap}</p>
-                  </div>
-                </div>
-              ))}
-            {movieCinema &&
-              movieCinema.map((cinema) => (
-                <div
-                  className="card mt-3 col-span-2 w-[100px]"
-                  key={cinema.maLichChieu}
+                  Previous
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
-                  <div className="card-body">
-                    <p>{cinema.maRap}</p>
-                    <p>{cinema.tenRap}</p>
-                    <p>{cinema.ngayChieuGioChieu}</p>
-                    <p>{cinema.giaVe}</p>
-                  </div>
-                </div>
-              ))}
-          </div>
-          <div className="gird gird-cols-5"></div>
+                  1
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  2
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  aria-current="page"
+                  class="py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                >
+                  3
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  4
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  5
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  Next
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div className="Service flex ">
+          <Service />
         </div>
       </div>
       <Footer />

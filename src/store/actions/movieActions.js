@@ -41,7 +41,7 @@ export const movieActions = {
     getMovieRap: () => {
         return async (dispatch) => {
             const result = await axios({
-                url: 'http://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap',
+                url: 'http://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01',
                 method: 'GET',
                 headers: {
                     TokenCyberSoft:

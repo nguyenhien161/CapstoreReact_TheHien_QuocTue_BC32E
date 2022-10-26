@@ -14,8 +14,18 @@ const Service = () => {
       <div className="gird gird-rows-5 ">
         {movieRap &&
           movieRap.map((films) => (
-            <div className="mt-3" key={films.maHeThongRap}>
-              <img className="h-100" src={films.logo} alt={films.biDanh} />
+            <div
+              className="card flex flex-wrap mt-3 mb-3 text-center"
+              key={films.maHeThongRap}
+            >
+              <img
+                className="h-100 w-[100px] justify-center mt-3 ml-6"
+                src={films.logo}
+                alt={films.biDanh}
+              />
+              <div className="card-body">
+                <p>{films.tenHeThongRap}</p>
+              </div>
             </div>
           ))}
       </div>
