@@ -21,6 +21,8 @@ const Home = () => {
   const [searchParams, setSearchParam] = useSearchParams({
     isShowing: true,
   });
+
+  const { movieRap } = useQuanLyRap();
   const [query, setQueryUrl] = useQueryUrl({
     isShowing: true,
   });
@@ -28,11 +30,11 @@ const Home = () => {
   console.log("query: ", query);
   const v = useQueryUrl();
   const { movieList, isFetching, error, number } = useQuanLyPhim();
-  const { movieRap, movieCinema } = useQuanLyRap();
 
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(getMovieList());
+    dispatch(getMovieRap());
   }, []);
   if (isFetching) {
     return (
@@ -85,6 +87,24 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-3 gap-3 ">
+          {/* {movieList
+            .filter((item) => item.sapChieu.toString() === query.isShowing)
+            .map((film) => (
+              <div className="mt-3" key={film.maPhim}>
+                <div className="card h-100">
+                  <img className="h-100" src={film.hinhAnh} alt={film.name} />
+                  <div className="card-body">
+                    <p>{film.tenPhim}</p>
+                    <button
+                      className="btn btn-success"
+                      onClick={() => navigate(`/detail/${film.maPhim}`)}
+                    >
+                      Chi tiết
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))} */}
           {movieList
             .filter((item) =>
               query.isShowing == "false" ? item.sapChieu : !item.sapChieu
@@ -95,12 +115,12 @@ const Home = () => {
                   <img className="h-100" src={film.hinhAnh} alt={film.name} />
                   <div className="card-body">
                     <p className="text-20">{film.tenPhim}</p>
-                    <a
+                    <button
                       className="px-3 py-2 bg-green-700 text-white rounded"
                       onClick={() => navigate(`/detail/${film.maPhim}`)}
                     >
                       Detail
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -169,9 +189,7 @@ const Home = () => {
             </ul>
           </nav>
         </div>
-        <div className="Service flex ">
-          <Service />
-        </div>
+        <Service movieRap={movieRap} />
       </div>
       <Footer />
     </div>

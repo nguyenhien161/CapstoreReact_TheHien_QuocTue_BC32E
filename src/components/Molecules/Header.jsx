@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className=" h-100 bg-opacity-40 fixed w-full z-10">
+    <header className=" bg-opacity-50 bg-black fixed w-full z-10">
       <div className="container-xl flex justify-between">
         <div className="nav">
           <h2 href="" className="text-black text-30">
@@ -38,10 +38,10 @@ export const Header = () => {
         </ul>
 
         <div className="items-center flex-shrink-0 hidden lg:flex">
-          <button className="self-center px-5 py-2 rounded text-white hover:text-green-400 bg-black">
+          <button className="self-center px-5 py-2 rounded text-white hover:bg-red-600">
             Sign in
           </button>
-          <button className="self-center px-5 py-2 font-semibold rounded bg-gray-500 text-white hover:bg-red-400 hover:text-black">
+          <button className="self-center px-5 py-2 font-semibold rounded text-white hover:bg-red-600">
             Sign up
           </button>
         </div>
