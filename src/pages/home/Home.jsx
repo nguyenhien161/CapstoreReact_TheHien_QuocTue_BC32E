@@ -13,7 +13,7 @@ import {
 import { useQuanLyPhim } from "../../storeToolkit/quanLyPhim/quanLyPhimSelector";
 import { useQueryUrl } from "../../hooks/useQueryUrl";
 import { Skeleton } from "antd";
-import { Carousel, Footer, Header } from "../../components/Molecules";
+import { Carousel, Header } from "../../components/Molecules";
 import Service from "../service/Service";
 
 const Home = () => {
@@ -56,7 +56,6 @@ const Home = () => {
 
   return (
     <div className="Home bg-neutral-800">
-      <Header />
       <Carousel />
       <div className="container-sm">
         <div className="mt-3">
@@ -191,7 +190,6 @@ const Home = () => {
         </div>
         <Service movieRap={movieRap} />
       </div>
-      <Footer />
     </div>
   );
 };

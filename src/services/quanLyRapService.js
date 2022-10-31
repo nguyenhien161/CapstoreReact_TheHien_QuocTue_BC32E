@@ -6,6 +6,6 @@ export const quanLyRapServices = {
     },
 
     getThongTinRap: ()=>{
-        // return api.get('QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01')
+        return api.get('QuanLyRap/LayThongTinHeThongRap')
     }
 }
