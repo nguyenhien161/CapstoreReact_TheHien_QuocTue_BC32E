@@ -1,7 +1,7 @@
-import { Divider, Tabs } from "antd";
+import { Tabs } from "antd";
 import TabPane from "antd/lib/tabs/TabPane";
 import moment from "moment";
-import React, { Component, Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 
 export default class Service extends React.PureComponent {

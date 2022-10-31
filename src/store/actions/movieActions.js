@@ -5,9 +5,10 @@ export const movieActions = {
     getMovieList: () => {
         return async (dispatch) => {
             const result = await axios({
-                url: 'http://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
                 method: 'GET',
                 headers: {
+                    "Content-Type": "application/json",
                     TokenCyberSoft:
                         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzMkUiLCJIZXRIYW5TdHJpbmciOiIyMC8wMy8yMDIzIiwiSGV0SGFuVGltZSI6IjE2NzkyNzA0MDAwMDAiLCJuYmYiOjE2NTA0NzQwMDAsImV4cCI6MTY3OTQxODAwMH0.S7l5kogAVJjRW8mjJ5gosJraYq5ahYjrBwnMJAaGxlY',
                 },
@@ -23,7 +24,7 @@ export const movieActions = {
     getBannerList: () => {
         return async (dispatch) => {
             const result = await axios({
-                url: 'http://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachBanner',
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachBanner',
                 method: 'GET',
                 headers: {
                     TokenCyberSoft:
@@ -41,9 +42,10 @@ export const movieActions = {
     getMovieRap: () => {
         return async (dispatch) => {
             const result = await axios({
-                url: 'http://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01',
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01',
                 method: 'GET',
                 headers: {
+                    "Content-Type": "app;ication/json",
                     TokenCyberSoft:
                         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzMkUiLCJIZXRIYW5TdHJpbmciOiIyMC8wMy8yMDIzIiwiSGV0SGFuVGltZSI6IjE2NzkyNzA0MDAwMDAiLCJuYmYiOjE2NTA0NzQwMDAsImV4cCI6MTY3OTQxODAwMH0.S7l5kogAVJjRW8mjJ5gosJraYq5ahYjrBwnMJAaGxlY',
                 },
@@ -80,6 +82,7 @@ export const movieActions = {
                 url: `http://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${movieId}`,
                 method: 'GET',
                 headers: {
+                    "Content-Type": "app;ication/json",
                     TokenCyberSoft:
                         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzMkUiLCJIZXRIYW5TdHJpbmciOiIyMC8wMy8yMDIzIiwiSGV0SGFuVGltZSI6IjE2NzkyNzA0MDAwMDAiLCJuYmYiOjE2NTA0NzQwMDAsImV4cCI6MTY3OTQxODAwMH0.S7l5kogAVJjRW8mjJ5gosJraYq5ahYjrBwnMJAaGxlY',
                 },

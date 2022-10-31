@@ -7,7 +7,11 @@ export const Header = () => {
       <div className="container-xl flex justify-between">
         <div className="nav">
           <h2 href="" className="text-black text-30">
-            <img className="w-[100px]" src="./img/logo.png" alt="" />
+            <img
+              className="w-[100px]"
+              src="https://seeklogo.com/images/M/movie-time-cinema-logo-8B5BE91828-seeklogo.com.png"
+              alt=""
+            />
           </h2>
         </div>
         <ul className="items-stretch hidden space-x-3 lg:flex ">
@@ -21,7 +25,7 @@ export const Header = () => {
           </li>
           <li className="flex">
             <NavLink
-              to="/about"
+              to="/Admin"
               className="flex items-center px-4 -mb-1 border-b-2 border-transparent  text-white hover:border-red-600"
             >
               Contacts
